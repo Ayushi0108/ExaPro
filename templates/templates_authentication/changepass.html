@@ -1,0 +1,49 @@
+{% extends 'base_authentication.html' %}
+{% load static %}
+{% block content %}
+<head>
+	<link rel="stylesheet" type="text/css" href="{% static 'static_authentication/css/change_pass.css' %}">
+</head>
+<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
+				<form class="login100-form validate-form" action="" method="POST">
+					{% csrf_token %}
+
+					<span class="login100-form-title p-b-33">
+						Change Password
+					</span>
+
+					<div class="wrap-input100 rs1 validate-input" data-validate="Email is required">
+						<input class="input100" type="email" name="email" placeholder="Email-ID">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
+					</div>
+
+					<div class="wrap-input100 rs1 validate-input" data-validate="Password is required">
+						<input class="input100" type="password" name="pass" placeholder="Password">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
+					</div>
+					<div class="wrap-input100 rs1 validate-input" data-validate="Confirm Password is required">
+						<input class="input100" type="password" name="conf_pass" placeholder="Confirm Password">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
+					</div>
+
+					<br>
+					<div class="container-login100-form-btn m-t-20">
+						<button class="login100-form-btn" value="proceed" type="submit" name = "butt_pass">
+							Proceed
+						</button>
+					</div>
+					<br>
+					<center><label style="color: red; font-size: 18px;">{{err_msg}}<label </center>
+
+
+			</div>
+			</form>
+		</div>
+	</div>
+	</div>
+{% endblock content %}

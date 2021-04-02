@@ -1,0 +1,91 @@
+{% extends 'base_user_panel.html' %}
+{% block content %}
+
+<div class="container">
+    {% for ex in sd %}
+    <div class="card">
+        <h3 class="card-header">{{ex.exam_name}}</h3>
+        <div class="card-body">
+            <input type="text" value="{{ex.eid}}" name="eid" style="display: none;">
+            <label>Exam Id: {{ex.eid}}</label>
+            <label>Exam Name: {{ex.exam_name}}</label><br>
+            <label>Subject: {{ex.subject}}</label>
+            <div class="input-group">
+                <label style="margin-right: 10px;">Duration: {{ex.duration}}</label>
+                <label>Marks: {{ex.tmarks}}</label>
+            </div>
+
+            <br>
+            <a type="submit" class="btn pbtn" href="{% url 'edit-exam' ex.eid %}"><i class="fa fas fa-edit"
+                    style="margin-right: 10px;"></i>Edit</a>
+        </div>
+       
+    </div>
+    {% endfor %}
+    </div>
+    <style>
+        .container {
+            -webkit-column-count: 3;
+            /* Chrome, Safari, Opera */
+            -moz-column-count: 3;
+            /* Firefox */
+            column-count: 3;
+            -webkit-column-gap: 2rem;
+            /* Chrome, Safari, Opera */
+            -moz-column-gap: 2rem;
+            column-gap: 2rem;
+        }
+
+     
+        .card {
+            display: inline-block;
+            width: calc(100%/1);
+        }
+
+        .card-body {
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+        .input-cu {
+            margin-top: 18px;
+        }
+
+        .pbtn {
+            background-color: #40006e;
+            color: white;
+        }
+
+        .pbtn:hover {
+            background-color: #FF006a;
+            color: white;
+        }
+
+        label {
+            color: rgb(71, 71, 71) !important;
+        }
+
+        @media (max-width:768px) {
+            .container {
+                -webkit-column-count: 1;
+                /* Chrome, Safari, Opera */
+                -moz-column-count: 1;
+                /* Firefox */
+                column-count: 1;
+                -webkit-column-gap: 1rem;
+                /* Chrome, Safari, Opera */
+                -moz-column-gap: 1rem;
+                column-gap: 1rem;
+            }
+
+            label {
+                width: 100% !important;
+                margin-bottom: 10px !important;
+            }
+        }
+    </style>
+    
+    <script>
+        document.getElementById("n2").classList.add('active');
+    </script>
+    {% endblock content %}

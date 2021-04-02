@@ -1,0 +1,539 @@
+{% extends 'base_website.html' %}
+{% block content %}
+{% load static %}
+
+<body data-spy="scroll" data-target=".fixed-top">
+
+    <!-- Preloader -->
+    <div class="spinner-wrapper">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+        <div class="logo">
+            <img src="{% static 'static_panels/images/logo.jpg' %}"
+                style="margin-top:-16px; width: 30px; height: 30px;border-radius:50px; ">
+            <a class="navbar-brand" href="{% url 'index' %}">ExaPro</a>
+        </div>
+        <a class="navbar-brand logo-image navlogo" href="#header"
+            style="text-decoration: none;font-size: 28px; font-weight: 700; padding-left: 10px;">
+            <!-- <img src="{% static 'static_website/images/logo.jpg' %}" class="logo" style="width: 40px; height: 40px; object-fit: cover; border-radius:100%;"> -->
+        </a>
+        <!-- Mobile Menu Toggle Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-awesome fas fa-bars"></span>
+            <span class="navbar-toggler-awesome fas fa-times"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link page-scroll" href="#header">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link page-scroll" href="#pricing">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link page-scroll" href="#video">Help</a>
+                </li>
+
+                <!-- Dropdown Menu -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle page-scroll" href="#about" id="navbarDropdown" role="button"
+                        aria-haspopup="true" aria-expanded="false">About</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'terms-conditions' %}"><span class="item-text">Terms
+                                Conditions</span></a>
+                        <div class="dropdown-items-divide-hr"></div>
+                        <a class="dropdown-item" href="{% url 'privacy-policy' %}"><span class="item-text">Privacy
+                                Policy</span></a>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link page-scroll" href="#contact">Contact</a>
+                </li>
+            </ul>
+            <span class="nav-item social-icons">
+                <span class="fa-stack">
+                    <a href="https://www.facebook.com/exapro.gpa.7/">
+                        <i class="fas fa-circle fa-stack-2x facebook"></i>
+                        <i class="fab fa-facebook-f fa-stack-1x"></i>
+                    </a>
+                </span>
+                <span class="fa-stack">
+                    <a href="https://twitter.com/ExaproO">
+                        <i class="fas fa-circle fa-stack-2x twitter"></i>
+                        <i class="fab fa-twitter fa-stack-1x"></i>
+                    </a>
+                </span>
+            </span>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header id="header" class="header">
+        <div class="header-content">
+            <div class="container hcontainer">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="text-container htext"><br>
+                            <h1 class="ph1 ph-u"><span class="turquoise headlogo">ExaPro</span></h1>
+                            <h1 class="ph1 ph-t2">Online Assessment Platform</h1>
+                            <p class="ph1" p-large">Our assessment solution is best for assessing students for
+                                online<br>exams and supports various formats such as MCQs, eassay, code, <br>typing,
+                                aptitude, and complex tests that are secured through<br>advanced encryption technique
+                            </p>
+                            <br>
+                            <a class="btn-solid-lg page-scroll" href="{% url 'user-login' %}"
+                                style="background-color: rgb(255, 0, 106); border:none;margin-bottom: 100px;font-size: 15px;">Signup</a>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="image-container" style="padding-top: 100px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Pricing -->
+    <div id="pricing" class="pricing cards-2" ">
+        <div class=" container" style="font-family: Verdana, Geneva, Tahoma, sans-serif !important;">
+        <div class="row">
+            <div class="col-lg-12">
+                <center>
+                    <br>
+                    <h2 class="ph3 pricetxt" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Choose your plan
+                    </h2><br>
+                </center>
+            </div>
+            <div class="card-container" style="margin: 0px 30px;">
+                <div class="offset-xl-1 col-xl-10">
+                    <div class="row">
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+                            <div class="card">
+                                <div class="card-header plans text-center p-3 ">
+                                    <h4 class="mb-0 text-white">Free</h4>
+                                </div>
+                                <div class="card-body text-center">
+                                    <h1 class="mb-1" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">0 Rs</h1>
+                                </div>
+                                <div class="card-body border-top">
+                                    <ul class="list-unstyled bullet-check font-14">
+
+                                        <li>5 Exams</li>
+                                        <li>50 Students</li>
+                                        <li>8 Days</li>
+
+                                    </ul>
+                                    <a href="#" class="btn purchasebtn btn-block btn-lg">Free</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+                            <div class="card">
+                                <div class="card-header plans text-center p-3">
+                                    <h4 class="mb-0 text-white">Standard</h4>
+                                </div>
+                                <div class="card-body text-center">
+                                    <h1 class="mb-1" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">599 RS
+                                    </h1>
+                                </div>
+                                <div class="card-body border-top">
+                                    <ul class="list-unstyled bullet-check font-14">
+                                        <li>100 Exams</li>
+                                        <li>200 Students</li>
+                                        <li>Face Detection</li>
+                                        <li>6 Months</li>
+
+                                    </ul>
+                                    <a href="#" class="btn purchasebtn btn-block btn-lg">Buy Now</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+                            <div class="card">
+                                <div class="card-header plans text-center p-3">
+                                    <h4 class="mb-0 text-white">Premium</h4>
+                                </div>
+                                <div class="card-body text-center">
+                                    <h1 class="mb-1" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">1499 RS</h1>
+                                </div>
+                                <div class="card-body border-top">
+                                    <ul class="list-unstyled bullet-check font-14">
+                                        <li>300 Exams</li>
+                                        <li>400 Students</li>
+                                        <li>Face Detaction</li>
+                                        <li>More Security</li>
+                                        <li>12 Months</li>
+                                    </ul>
+                                    <a href="#" class="btn purchasebtn btn-block btn-lg">Buy Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Video -->
+    <div class="container video"">
+        <div class=" basic-3" id="video">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <center style="margin-top: -20px;">
+                        <h2 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Check Out The Video</h2>
+                    </center>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="image-container">
+                        <div class="video-wrapper">
+                            <a class="popup-youtube" href="
+                                https://www.youtube.com/watch?v=Zh79avyxSFY&t=8s" data-effect="fadeIn">
+                                <img class="img-fluid" src="{% static 'static_website/images/video-frame.svg' %}"
+                                    style="margin-top: -20px;">
+                                <span class="video-play-button">
+                                    <span></span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <p>This video  provides our <strong>Major Customers</strong> a
+                         help that will make them understand and utilize our website conviniently
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- About -->
+    <div id="about" class="about basic-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">About The Team</h2>
+                    <p class="p-heading p-large"> Our focus is on providing the best user experience for our
+                        employees or students. With a team of 6 dedicated, friendly Developers we strive every day
+                        to
+                        improve our us and give you excellent support. We do this with a smile, and a cup of coffee
+                        in
+                        our hands!</p></b>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <!-- Team Member -->
+                    <div class="team-member">
+                        <div class="image-wrapper">
+                            <img class="img-fluid" src="{% static 'static_website/images/kaustubh.jpg' %}"
+                                alt="alternative">
+                        </div>
+                        <p class="p-large"><strong>Kaustubh Bhlue</strong></p>
+                        <span class="social-icons">
+                            <span class="fa-stack">
+                                <a href="https://www.facebook.com/kaustubh.bhule/">
+                                    <i class="fas fa-circle fa-stack-2x facebook"></i>
+                                    <i class="fab fa-facebook-f fa-stack-1x"></i>
+                                </a>
+                            </span>
+                            <span class="fa-stack">
+                                <a href="https://twitter.com/BhuleKaustubh">
+                                    <i class="fas fa-circle fa-stack-2x twitter"></i>
+                                    <i class="fab fa-twitter fa-stack-1x"></i>
+                                </a>
+                            </span>
+                        </span>
+                    </div>
+
+
+                    <!-- Team Member -->
+                    <div class="team-member">
+                        <div class="image-wrapper">
+                            <img class="img-fluid" src="{% static 'static_website/images/ayushi.jpg' %}"
+                                alt="alternative">
+                        </div>
+                        <p class="p-large"><strong>Ayushi Thakur</strong></p>
+
+                        <span class="social-icons">
+                            <span class="fa-stack">
+                                <a href="https://www.facebook.com/">
+                                    <i class="fas fa-circle fa-stack-2x facebook"></i>
+                                    <i class="fab fa-facebook-f fa-stack-1x"></i>
+                                </a>e
+                            </span>
+                            <span class="fa-stack">
+                                <a href="https://twitter.com/">
+                                    <i class="fas fa-circle fa-stack-2x twitter"></i>
+                                    <i class="fab fa-twitter fa-stack-1x"></i>
+                                </a>
+                            </span>
+                        </span>
+                    </div>
+
+
+                    <!-- Team Member -->
+                    <div class="team-member">
+                        <div class="image-wrapper">
+                            <img class="img-fluid" src="{% static 'static_website/images/shantanu.jpeg' %}"
+                                alt="alternative">
+                        </div>
+                        <p class="p-large"><strong>Shantanu Barad</strong></p>
+
+                        <span class="social-icons">
+                            <span class="fa-stack">
+                                <a href="https://www.facebook.com/">
+                                    <i class="fas fa-circle fa-stack-2x facebook"></i>
+                                    <i class="fab fa-facebook-f fa-stack-1x"></i>
+                                </a>
+                            </span>
+                            <span class="fa-stack">
+                                <a href="https://twitter.com/">
+                                    <i class="fas fa-circle fa-stack-2x twitter"></i>
+                                    <i class="fab fa-twitter fa-stack-1x"></i>
+                                </a>
+                            </span>
+                        </span>
+                    </div>
+
+
+                    <!-- Team Member -->
+                    <p>
+                    <div class="team-member">
+                        <div class="image-wrapper">
+                            <img class="img-fluid" src="{% static 'static_website/images/sadiya.jpeg' %}"
+                                alt="alternative">
+                        </div>
+                        <p class="p-large"><strong>Sadiya Abdul Salim</strong></p>
+
+                        <span class="social-icons">
+                            <span class="fa-stack">
+                                <a href="https://www.facebook.com/">
+                                    <i class="fas fa-circle fa-stack-2x facebook"></i>
+                                    <i class="fab fa-facebook-f fa-stack-1x"></i>
+                                </a>
+                            </span>
+                            <span class="fa-stack">
+                                <a href="https://twitter.com/">
+                                    <i class="fas fa-circle fa-stack-2x twitter"></i>
+                                    <i class="fab fa-twitter fa-stack-1x"></i>
+                                </a>
+                            </span>
+                        </span>
+                    </div>
+
+                    <!-- Team Member -->
+                    <div class="team-member">
+                        <div class="image-wrapper">
+                            <img class="img-fluid" src="{% static 'static_website/images/sejal.jpeg' %}"
+                                alt="alternative">
+                        </div>
+                        <p class="p-large"><strong>Sejal Puraswani</strong></p>
+
+                        <span class="social-icons">
+                            <span class="fa-stack">
+                                <a href="https://www.facebook.com/">
+                                    <i class="fas fa-circle fa-stack-2x facebook"></i>
+                                    <i class="fab fa-facebook-f fa-stack-1x"></i>
+                                </a>
+                            </span>
+                            <span class="fa-stack">
+                                <a href="https://twitter.com/">
+                                    <i class="fas fa-circle fa-stack-2x twitter"></i>
+                                    <i class="fab fa-twitter fa-stack-1x"></i>
+                                </a>
+                            </span>
+                        </span>
+                    </div>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact -->
+    <div id="contact" class="contact form-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 style="font-family: Verdana, Geneva, Tahoma, sans-serif;"">Contact Information</h2>
+                    <ul class=" list-unstyled li-space-lg">
+                        <li class="address">Don't hesitate to give us a call or send us a contact form message</li>
+                        </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6" style="margin-top: -21px;">
+                    <div class="map-responsive">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d238541.18417656783!2d77.62165752374443!3d20.90403011662421!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd6a4a67774bc15%3A0x3c7b3f78ca4f9635!2sAmravati%2C%20Maharashtra%2C%20India!5e0!3m2!1sen!2sro!4v1602766762920!5m2!1sen!2sro"
+                            width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""
+                            aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+
+                    <!-- Contact Form -->
+                    <form id="contactForm" data-toggle="validator" data-focus="false" style="margin-top: -20px;"
+                        action="{% url 'contact' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" class="form-control-input" id="cname" name="uname" required>
+                            <label class="label-control" for="cname">Name</label>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control-input" id="cemail" name="uemail" required>
+                            <label class="label-control" for="cemail">Email</label>
+                            <div class="help-block with-errors">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea class="form-control-textarea" id="cmessage" name="umessage" required></textarea>
+                            <label class="label-control" for="cmessage">Your message</label>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group checkbox">
+                            <input type="checkbox" id="cterms" value="Agreed-to-Terms" required>I have read and agree
+                            with ExaPro's stated <a href="{% url 'privacy-policy' %}">Privacy Policy</a> and <a
+                                href="{% url 'terms-conditions' %}">Terms & Conditions</a>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="form-control-submit-button">SEND MESSAGE</button>
+                        </div>
+                        <div class="form-message">
+                            <div id="cmsgSubmit" class="h3 text-center hidden"></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer" style="padding: 15px;"">
+        <div class=" container">
+        <hr><br>
+        <div class="row">
+            <div class="col-md-4">
+
+                <div class="footer-col">
+                    <h4>About ExaPro</h4>
+                    <p>We're passionate about offering some of the best facilities for online assesments</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="footer-col middle">
+                    <h4>Important Links</h4>
+                    <ul class="list-unstyled li-space-lg">
+                        <li class="media">
+                            <i class="fas fa-square"></i>
+                            <div class="media-body">Read our <a class="turquoise"
+                                    href="{% url 'terms-conditions' %}">Terms
+                                    & Conditions</a>
+                            </div>
+                        </li>
+                        <li class="media">
+                            <i class="fas fa-square"></i>
+                            <div class="media-body">Read our <a class="turquoise">
+                                    <a class="turquoise" href="{% url 'privacy-policy' %}">privacy
+                                        policy</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="footer-col last">
+                    <h4>Social Media</h4>
+                    <span class="fa-stack">
+                        <a href="https://www.facebook.com/exapro.gpa.7">
+                            <i class="fas fa-circle fa-stack-2x"></i>
+                            <i class="fab fa-facebook-f fa-stack-1x"></i>
+                        </a>
+                    </span>
+                    <span class="fa-stack">
+                        <a href="https://twitter.com/ExaproO">
+                            <i class="fas fa-circle fa-stack-2x"></i>
+                            <i class="fab fa-twitter fa-stack-1x"></i>
+                        </a>
+                    </span>
+                    <span class="fa-stack">
+                        <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&to=exapro.official@gmail.com">
+                            <i class="fas fa-circle fa-stack-2x"></i>
+                            <i class="fab fa-google-plus-g fa-stack-1x"></i>
+                        </a>
+                    </span>
+                    <span class="fa-stack">
+                        <a href="https://www.instagram.com/exapro.official/">
+                            <i class="fas fa-circle fa-stack-2x"></i>
+                            <i class="fab fa-instagram fa-stack-1x"></i>
+                        </a>
+                    </span>
+                    <span class="fa-stack">
+                        <a href="https://www.linkedin.com/in/exa-pro-aaba981ba/">
+                            <i class="fas fa-circle fa-stack-2x"></i>
+                            <i class="fab fa-linkedin-in fa-stack-1x"></i>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="copyright" style="margin-top: -40px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="p-small">Copyright © 2020 <a href="#header">ExaPro</a> - All rights
+                        reserved</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="stickyCookieAlert" id="stickyCookieAlert">
+        <span class="cookieText">This website is using cookies. By continuing to browse, you are agreeing to our use of
+            cookies as explained in our <a class="a-cookie"
+                href="{% url 'cookie-policy' %}">Cookie&nbsp;Policy</a>.</span>
+        <a id="cookie-consent" type="button" onclick="chide();">Ok</a>
+    </div>
+
+    <script>
+
+        setTimeout(() => {
+            if (localStorage.getItem("consent") != "true") {
+                var cb = document.getElementById('stickyCookieAlert');
+                cb.style.display = "block";
+            }
+        }, 5000);
+
+
+        function chide() {
+            var cb = document.getElementById('stickyCookieAlert');
+            localStorage.setItem("consent", "true");
+            cb.style['display'] = "none";
+        }
+    </script>
+
+    {% endblock content %}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'static_website/images/favicon.ico' %}" type="image/x-icon">
+    <link rel="icon" href="{% static 'static_website/images/favicon.ico' %}" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="{% static 'static_authentication/vendor/bootstrap/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'static_authentication/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <title>ExaPro</title>
+</head>
+
+<body>
+    {% block content %}
+    {% endblock content %}
+</body>
+
+<script src="{% static 'static_authentication/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'static_authentication/vendor/animsition/js/animsition.min.js' %}"></script>
+<script src="{% static 'static_authentication/vendor/bootstrap/js/popper.js' %}"></script>
+<script src="{% static 'static_authentication/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'static_authentication/vendor/countdowntime/countdowntime.js' %}"></script>
+<script src="{% static 'static_authentication/js/main.js' %}"></script>
+
+
+</html>

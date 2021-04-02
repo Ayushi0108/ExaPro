@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,600,700,700i&amp;subset=latin-ext" rel="stylesheet">
+    <link href="{% static 'static_website/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'static_website/css/fontawesome-all.css' %}" rel="stylesheet">
+    <link href="{% static 'static_website/css/swiper.css' %}" rel="stylesheet">
+	<link href="{% static 'static_website/css/magnific-popup.css' %}" rel="stylesheet">
+    <link href="{% static 'static_website/css/styles.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'static_panels/vendor/fonts/flag-icon-css/flag-icon.min.css' %}">
+    <link rel="shortcut icon" href="{% static 'static_website/images/favicon.ico' %}" type="image/x-icon">
+    <link rel="icon" href="{% static 'static_website/images/favicon.ico' %}" type="image/x-icon">
+    <title>ExaPro</title>
+</head>
+<body>
+    {% block content %}
+    {% endblock content %}
+</body>
+<script src="{% static 'static_website/js/jquery.min.js' %}"></script> 
+<script src="{% static 'static_website/js/popper.min.js' %}"></script> 
+<script src="{% static 'static_website/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'static_website/js/jquery.easing.min.js' %}"></script> 
+<script src="{% static 'static_website/js/swiper.min.js' %}"></script>
+<script src="{% static 'static_website/js/jquery.magnific-popup.js' %}"></script>
+<script src="{% static 'static_website/js/validator.min.js' %}"></script> 
+<script src="{% static 'static_website/js/scripts.js' %}"></script> 
+</html>

@@ -1,0 +1,44 @@
+{% extends 'base_authentication.html' %}
+{% load static %}
+{% block content %}
+
+<head>
+	<link rel="stylesheet" type="text/css" href="{% static 'static_authentication/css/main.css' %}">
+</head>
+<!--Login -->
+<div class="limiter modal" style="display: block;">
+	<div class="container-login100">
+		<div class="wrap-login100 log-margin" >
+
+			<form class="login100-form validate-form p-l-55 p-r-55" action="{% url 'admin-login' %}" method="POST" id="myform">
+				{% csrf_token %}
+				<span class="login100-form-title">
+					Admin
+				</span>
+
+				<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter Email-ID">
+					<input class="input100" type="email" name="email" placeholder="Email-ID">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate="Please enter password">
+					<input class="input100" type="password" name="password" placeholder="Password">
+					<span class="focus-input100"></span>
+				</div><br>
+
+			
+				<div class="container-login100-form-btn" style="margin-top: -30px;">
+					<button class="login100-form-btn login" type="submit">
+						Sign in
+					</button>
+				</div>
+				<br>
+				<center><label style="color: red; font-size: 18px; padding-top: 20px;">{{err_msg}}</label></center><br><br>
+				
+			</form>
+		</div>
+	</div>
+</div>
+<!--end of Login -->
+
+{% endblock content %}

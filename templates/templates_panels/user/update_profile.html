@@ -1,0 +1,236 @@
+{% extends 'base_user_panel.html' %}
+{% load static %}
+{% block content %}
+<head>
+  <link rel="stylesheet" href="{% static 'bootstrap-4.0/css/bootstrap.min.css' %}">
+  <link href="{% static 'static_exam\css\styles\update_panel.css' %}" rel="stylesheet" type="text/css" media="all" />
+  <link rel="stylesheet" href="{% static 'static_authentication/css/fontawesome-all.css' %}" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" 
+     href="{% static 'static_authentication/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+  <!-- <link rel="stylesheet" href="{% static 'static_authentication/css/alerts.css' %}" rel="stylesheet"> -->
+
+
+  <script src="{% static 'static_authentication/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'static_authentication/vendor/bootstrap/js/popper.min.js' %}"></script>
+  <script src="{% static 'static_authentication/js/main.js' %}"></script>
+
+  <title>ExaPro</title>
+</head>
+<center>
+  <div class="main-form">
+    <form method="POST" class="post-form" enctype="multipart/form-data" action="{% url 'update-profile' %}">
+      {% csrf_token %}
+      <div class="formm">
+        <center>
+          <div class="profile-pic-div">
+            <img src="{{media_url}}{{user.image}}" id="photo">
+            <input type="file" id="file" name="image">
+            <label for="file" id="uploadBtn" name="image">Choose Photo</label>
+          </div>
+        </center>
+
+        <div class="form-group">
+          &ensp;
+          <input type="text" name="username" class="form-control" id="inputAddress" placeholder="Username"
+            value="{{user.username}}" required>
+        </div>
+
+
+        <div class="form-row">
+
+          <div class="form-group col-md-6">
+            &ensp;
+            <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="Email Id"
+              onkeypress="removeSpace(event)" value="{{user.email}}" readonly required>
+          </div>
+
+          <div class="form-group col-md-6">
+            &ensp;
+            <input type="password" name="password" class="form-control" id="inputPassword4" placeholder="Password"
+              onkeypress="removeSpace(event)" value="{{user.password}}" readonly required>
+          </div>
+
+        </div>
+
+
+        <div class="form-group">
+          &ensp;
+          <input type="text" name="address" value="{{user.address}}" class="form-control" id="inputAddress"
+            placeholder="Address" required>
+        </div>
+
+        <div class="form-group">
+          &ensp;
+          <input type="text" name="phone" class="form-control" id="inputAddress2" placeholder="Mobile No."
+            value="{{user.phone}}"
+            onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"
+            minlength="10" maxlength="10" required>
+        </div>
+
+
+        <div class="form-row">
+
+          <div class="form-group col-md-6">
+            &ensp;
+            <input type="text" name="city" value="{{user.city}}" class="form-control" id="inputCity" placeholder="City"
+              required>
+          </div>
+
+          <div class="form-group col-md-6">
+            &ensp;
+            <select name="state" id="inputState" class="form-control" placeholder="State" required>
+              <option>{{user.state}}</option>
+              <option>Arunachal Pradesh</option>
+              <option>Assam</option>
+              <option>Bihar</option>
+              <option>Chhattisgarh</option>
+              <option>Goa</option>
+              <option>Gujarat</option>
+              <option>Haryana</option>
+              <option>Himachal Pradesh</option>
+              <option>Jammu and Kashmir</option>
+              <option>Jharkhand</option>
+              <option>Karnataka</option>
+              <option>Kerala</option>
+              <option>Madhya Pradesh</option>
+              <option>Maharashtra</option>
+              <option>Manipur</option>
+              <option>Meghalaya</option>
+              <option>Mizoram</option>
+              <option>Nagaland</option>
+              <option>Odisha</option>
+              <option>Punjab</option>
+              <option>Rajasthan</option>
+              <option>Sikkim</option>
+              <option>Tamil Nadu</option>
+              <option>Telangana</option>
+              <option>Tripura</option>
+              <option>Uttarakhand</option>
+              <option>Uttar Pradesh</option>
+              <option>West Bengal</option>
+              <option>Andaman and Nicobar Islands</option>
+              <option>Chandigarh</option>
+              <option>Dadra and Nagar Haveli</option>
+              <option>Daman and Diu</option>
+              <option>Delhi</option>
+              <option>Lakshadweep</option>
+              <option>Puducherry</option>
+            </select>
+          </div>
+
+        </div>
+        <center><label style="color: green; font-size: 18px; padding-top: 20px;">{{succ_msg}}</label>
+          <label style="color: red; font-size: 18px; padding-top: 20px;">{{err_msg}}</label>
+        </center>
+
+        <button type="submit" class="btn">Update</button>
+      </div>
+    </form>
+  </div>
+
+
+</center>
+
+</div>
+
+<script>
+  //declearing html elements
+
+  const imgDiv = document.querySelector('.profile-pic-div');
+  const img = document.querySelector('#photo');
+  const file = document.querySelector('#file');
+  const uploadBtn = document.querySelector('#uploadBtn');
+
+  //if user hover on img div
+
+  imgDiv.addEventListener('mouseenter', function () {
+    uploadBtn.style.display = "block";
+  });
+
+  //if we hover out from img div
+
+  imgDiv.addEventListener('mouseleave', function () {
+    uploadBtn.style.display = "none";
+  });
+
+  file.addEventListener('change', function () {
+    //this refers to file
+    const choosedFile = this.files[0];
+
+    if (choosedFile) {
+
+      const reader = new FileReader(); //FileReader is a predefined function of JS
+
+      reader.addEventListener('load', function () {
+        img.setAttribute('src', reader.result);
+      });
+
+      reader.readAsDataURL(choosedFile);
+    }
+  });
+</script>
+
+<script src="bootstrap-4.0/js/jquery-3.5.1.slim.min.js"></script>
+<script src="bootstrap-4.0/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'js/projs.js' %}" type="text/javascript"></script>
+<script src="{% static 'bootstrap-4.0/js/jquery-3.5.1.slim.min.js' %}"></script>
+<script src="{% static 'bootstrap-4.0/js/bootstrap.bundle.min.js' %}"></script>
+
+<script type="text/javascript">
+
+  function removeSpace(event) {
+
+    if (event.which == 32) {
+      event.preventDefault();
+      return false;
+    }
+    /*<!-- var str = document.getElementsByClassName('form-control');
+    var c = 0;
+    for(var x=0;x<str.length;x++)
+    {
+      if(str[x].value.split(" ").join('') == '')
+      {
+        c++;
+      }
+    }
+
+    if(c!=0)
+    {
+      alert("Fill up all the fields!!");
+    } -->*/
+
+  }
+
+
+</script>
+{% endblock content %}
+<!--
+<!doctype html>
+<html lang="en">
+  <head>
+      {% load static %}
+      <script src="{% static 'projs.js' %}" type="text/javascript"></script>
+      <link href="{% static 'style.css' %}" rel="stylesheet" type="text/css" media="all" />
+      <title>Register</title>
+  </head>
+<body>
+    <div class="main-form">
+        <form method="POST" class="post-form" >
+            {% csrf_token %}
+
+            <div class="formm">
+
+                <div class="profile-pic-div">
+                    <img src="profile.png" id="photo">
+                    <input type="file" id="file">
+                    <label for="file" id="uploadBtn">Choose Photo</label>
+                </div>
+
+            </div>
+
+        </form>
+    </div>
+<script src="{% static 'projs.js' %}" type="text/javascript"></script>
+</body>
+</html>-->

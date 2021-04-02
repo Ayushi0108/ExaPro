@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'static_panels/vendor/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'static_panels/vendor/fonts/circular-std/style.css' %}">
+    <link rel="stylesheet" href="{% static 'static_panels/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'static_panels/vendor/fonts/fontawesome/css/fontawesome-all.css' %}">
+    <link rel="stylesheet" href="{% static 'static_panels/vendor/charts/chartist-bundle/chartist.css' %}">
+    <link rel="stylesheet" href="{% static 'static_panels/vendor/charts/morris-bundle/morris.css' %}">
+    <link rel="stylesheet"
+        href="{% static 'static_panels/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'static_panels/vendor/charts/c3charts/c3.css' %}">
+    <link rel="stylesheet" href="{% static 'static_panels/vendor/fonts/flag-icon-css/flag-icon.min.css' %}">
+    <link rel="shortcut icon" href="{% static 'static_website/images/favicon.ico' %}" type="image/x-icon">
+    <link rel="icon" href="{% static 'static_website/images/favicon.ico' %}" type="image/x-icon">
+    <title>ExaPro</title>
+</head>
+
+<body>
+    <div class="dashboard-main-wrapper">
+        <div class="nav-left-sidebar sidebar-dark">
+            <div class="logo">
+                <a class="navbar-brand" href="{% url 'index' %}">ExaPro</a>
+            </div>
+            <div class="menu-list">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav flex-column">
+                            <li class="nav-item dropdown nav-user">
+                                <a class="nav-link nav-user-img" style="padding: 5px;font-size:16px; " href="#" id="navbarDropdownMenuLink2"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+                                        src="{% static 'static_authentication/images/profile.png' %}" alt=""
+                                        class="user-avatar-md rounded-circle"> Admin Profile</a>
+                                <div class="dropdown-menu dropdown-menu-right nav-user-dropdown"
+                                    aria-labelledby="navbarDropdownMenuLink2">
+                                    
+                                    <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
+                                    <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
+                                    <a class="dropdown-item" href="{% url 'admin-logout' %}"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                                </div>
+                            </li>
+                            <li class="nav-divider" style="margin-top: 20px;">
+                                Menu
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="n1" href="{% url 'view-customers' %}">
+                                    <i class="fas fa-users"></i>Our Customers
+                                    <span class="badge badge-success">6</span>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link " id="n2" href="{% url 'inbox' %}">
+                                    <i class="fa fa-envelope"></i>Inbox
+                                    <span class="badge badge-success">6</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="dashboard-wrapper">
+            <div class="dashboard-ecommerce">
+                <div class="container-fluid dashboard-content "><br>
+                    {% block content %}
+                    {% endblock content %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="{% static 'static_panels/vendor/jquery/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'static_panels/vendor/bootstrap/js/bootstrap.bundle.js' %}"></script>
+<script src="{% static 'static_panels/vendor/slimscroll/jquery.slimscroll.js' %}"></script>
+<script src="{% static 'static_panels/js/main-js.js' %}"></script>
+<script src="{% static 'static_panels/vendor/charts/chartist-bundle/chartist.min.js' %}"></script>
+<script src="{% static 'static_panels/vendor/charts/sparkline/jquery.sparkline.js' %}"></script>
+<script src="{% static 'static_panels/vendor/charts/morris-bundle/raphael.min.js' %}"></script>
+<script src="{% static 'static_panels/vendor/charts/morris-bundle/morris.js' %}"></script>
+<script src="{% static 'static_panels/vendor/charts/c3charts/c3.min.js' %}"></script>
+<script src="{% static 'static_panels/vendor/charts/c3charts/d3-5.4.0.min.js' %}"></script>
+<script src="{% static 'static_panels/vendor/charts/c3charts/C3chartjs.js' %}"></script>
+<script src="{% static 'static_panels/js/dashboard-ecommerce.js' %}"></script>
+
+
+</html>

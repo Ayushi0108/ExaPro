@@ -1,0 +1,224 @@
+{% extends 'base_user_panel.html' %}
+{% block content %}
+{% if action %}
+<div class="modal fade show" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    style="display: block; padding-right: 9px;background-color: #22222263; display: block; ">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">ExaPro</h5>
+                <a class="close" data-dismiss="modal" aria-label="Close" onclick="close_alert();">
+                    <span aria-hidden="true">×</span>
+                </a>
+            </div>
+            <div class="modal-body">
+                {{action}}
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+<script>
+    function close_alert() {
+        var close = document.getElementById('exampleModal');
+        close.style['display'] = "none";
+    }
+</script>
+
+<div class="container">
+    <div class="card">
+        <h3 class="card-header">Create Exam</h3>
+        <div class="card-body">
+            <form action="{% url 'create-exam' %}" method="POST">
+                {% csrf_token %}
+                <input type="text" value="{{cr.eid}}" name="eid" style="display: none;">
+                <input type="text" class="form-control input-cu" name="exam-name" value="{{cr.exam_name}}"
+                    placeholder="Exam Name" style="margin-top: 3px;" required>
+                <input type="text" class="form-control input-cu" name="subject" value="{{cr.subject}}"
+                    placeholder="Subject" required>
+                <div class="input-group">
+                    <input type="number" class="form-control input-cu d" name="time" value="{{cr.duration}}"
+                        placeholder="Duration (min)" style="margin-right: 20px;" min="10" required>
+                    <input type="number" class="form-control input-cu" name="total-marks" value="{{cr.tmarks}}"
+                        placeholder="Total Marks" min="10" required>
+                </div>
+                <br>
+                <button type="submit" class="btn pbtn" name="create-exam"><i class="fa fas fa-save"
+                        style="margin-right: 10px;"></i>Save</button>
+            </form>
+        </div>
+    </div>
+    <div class="card">
+        <h3 class="card-header">Students Eligible</h3>
+        <div class="card-body">
+            <form action="{% url 'create-exam' %}" method="POST">
+                {% csrf_token %}
+                <input type="text" value="{{cr.eid}}" name="eid" style="display: none;">
+                <input type="text" value="{{ins.eid}}" name="eid1" style="display: none;">
+                <textarea class="form-control input-cu" name="emails" cols="30" rows="5"
+                    style="resize: none; margin-top: 5px;" placeholder="e.g. abc@gmail.com"
+                    required>{{ins.all_emails}}</textarea>
+                <br>
+                <button type="submit" class="btn pbtn" name="add-mails"><i class="fa fa-save"
+                        style="margin-right: 10px;"></i>Save</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="container1">
+    <div class="card">
+        <h3 class="card-header">Set Question Paper</h3>
+    </div>
+</div>
+{% for i in ins2 %}
+<div class="container1">
+    <div class="card">
+        <div class="card-body">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <input type="text" value="{{i.id}}" name="id" style="display: none;">
+                <input type="text" value="{{i.eid}}" name="eid" style="display: none;">
+                <input type="text" class="form-control input-cu" name="que" value="{{i.questions}}"
+                    placeholder="Question" style="margin-top: 0;">
+                <div class="input-group" required>
+                    <input type="text" class="form-control input-cu" name="op1" value="{{i.option1}}"
+                        placeholder="Option1" style="margin-right: 15px;" required>
+                    <input type="text" class="form-control input-cu" name="op2" value="{{i.option2}}"
+                        placeholder="Option2" style="margin-right: 15px;" required>
+                    <input type="text" class="form-control input-cu" name="op3" value="{{i.option3}}"
+                        placeholder="Option3" style="margin-right: 15px;" required>
+                    <input type="text" class="form-control input-cu" name="op4" value="{{i.option4}}"
+                        placeholder="Option4" required>
+                </div>
+                <div class="input-group">
+                    <input type="number" class="form-control input-cu" name="ans" value="{{i.corr_ans}}"
+                        placeholder="Correct Answer" min="1" max="4" style="margin-right: 15px;" required>
+                    <input type="number" class="form-control input-cu" name="marks" value="{{i.marks}}"
+                        placeholder="Marks" min="1">
+                </div>
+                <br><button type="submit" class="btn pbtn" name="update-que" style="margin-right: 5px;"><i
+                        class="fa fa-save" style="margin-right: 10px;"></i>Update</button>
+                <button type="submit" class="btn pbtn" name="delete-que"><i class="fa fa-trash"
+                        style="margin-right: 10px;"></i>Delete</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endfor %}
+<div class="container1">
+    <div class="card">
+        <div class="card-body">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <input type="text" value="{{cr.eid}}" name="eid" style="display: none;">
+                <input type="text" class="form-control input-cu" name="que" placeholder="Question"
+                    style="margin-top: 0;" required>
+                <div class="input-group">
+                    <input type="text" class="form-control input-cu" name="op1" placeholder="Option1"
+                        style="margin-right: 15px;" required>
+                    <input type="text" class="form-control input-cu" name="op2" placeholder="Option2"
+                        style="margin-right: 15px;" required>
+                    <input type="text" class="form-control input-cu" name="op3" placeholder="Option3"
+                        style="margin-right: 15px;" required>
+                    <input type="text" class="form-control input-cu" name="op4" placeholder="Option4" required>
+                </div>
+                <div class="input-group">
+                    <input type="number" class="form-control input-cu" name="ans" placeholder="Correct Answer" min="1"
+                        max="4" style="margin-right: 15px;" required>
+                    <input type="number" class="form-control input-cu" name="marks" placeholder="Marks" min="1"
+                        required>
+                </div>
+                <br><button type="submit" class="btn pbtn" name="set-que"><i class="fa fa-plus"
+                        style="margin-right: 10px;"></i>Add</button>
+            </form>
+        </div>
+    </div>
+</div>
+<style>
+    .container {
+        -webkit-column-count: 2;
+        /* Chrome, Safari, Opera */
+        -moz-column-count: 2;
+        /* Firefox */
+        column-count: 2;
+        -webkit-column-gap: 2rem;
+        /* Chrome, Safari, Opera */
+        -moz-column-gap: 2rem;
+        column-gap: 2rem;
+    }
+
+    .container1 {
+        -webkit-column-count: 1;
+        /* Chrome, Safari, Opera */
+        -moz-column-count: 1;
+        /* Firefox */
+        column-count: 1;
+        -webkit-column-gap: 1rem;
+        /* Chrome, Safari, Opera */
+        -moz-column-gap: 1rem;
+        column-gap: 1rem;
+        padding-left: 14px;
+        padding-right: 18px;
+    }
+
+
+    .card {
+        display: inline-block;
+        width: calc(100%/1);
+    }
+
+    .card-body {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .input-cu {
+        margin-top: 18px;
+    }
+
+
+    .pbtn {
+        background-color: #40006e;
+        color: white;
+    }
+
+    .pbtn:hover {
+        background-color: #FF006a;
+        color: white;
+    }
+
+    input,
+    textarea {
+        color: rgb(71, 71, 71) !important;
+    }
+
+    @media (max-width:768px) {
+        .container {
+            -webkit-column-count: 1;
+            /* Chrome, Safari, Opera */
+            -moz-column-count: 1;
+            /* Firefox */
+            column-count: 1;
+            -webkit-column-gap: 1rem;
+            /* Chrome, Safari, Opera */
+            -moz-column-gap: 1rem;
+            column-gap: 1rem;
+        }
+
+        input {
+            width: 100% !important;
+            margin-bottom: 10px !important;
+            margin-right: 0px !important;
+        }
+
+        .d {
+            margin-right: 0px !important;
+        }
+    }
+</style>
+<script>
+    document.getElementById("n1").classList.add('active');
+    document.getElementById("n2").classList.remove('active');
+</script>
+
+{% endblock content %}
